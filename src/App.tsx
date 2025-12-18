@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-    Star,
     ArrowRight,
     Camera,
     CheckCircle,
     Search,
     MessageSquare
 } from 'lucide-react';
-import { TALENT_DATA } from './constants';
 import cheriLogo from './assets/cheri.png';
 import cheriFullBlack from './assets/cheri-full-black.png';
 import cheriFullRed from './assets/cheri-full-red.png';
@@ -77,77 +75,54 @@ const QuickStats: React.FC = () => {
     );
 };
 
-const Marketplace: React.FC = () => {
-    const [filter, setFilter] = useState('All');
-    const vibes = ['All', 'Corporate Chic', 'Gen-Z Energy', 'Tech Focused', 'Minimalist', 'Bold & Direct'];
-
-    const filteredTalent = filter === 'All'
-        ? TALENT_DATA
-        : TALENT_DATA.filter(t => t.vibe === filter);
+const Services: React.FC = () => {
+    const services = [
+        {
+            icon: <Camera className="text-brand" size={48} />,
+            title: "Talent Sourcing",
+            description: "Access our curated pool of vetted on-screen talent, filtered by look, vibe, and performance metrics."
+        },
+        {
+            icon: <Search className="text-brand" size={48} />,
+            title: "Vibe Matching",
+            description: "Our algorithm matches talent to your brand's aesthetic, ensuring authentic visual representation."
+        },
+        {
+            icon: <MessageSquare className="text-brand" size={48} />,
+            title: "Brief Management",
+            description: "Submit your creative briefs and let us handle talent coordination, scheduling, and delivery."
+        },
+        {
+            icon: <CheckCircle className="text-brand" size={48} />,
+            title: "Quality Assurance",
+            description: "Every piece of content goes through our review process to ensure brand alignment and quality."
+        }
+    ];
 
     return (
-        <section id="talent" className="py-24 bg-white px-6">
+        <section id="services" className="py-24 bg-white px-6">
             <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
-                    <div>
-                        <h2 className="text-4xl md:text-5xl font-black text-neutral-dark mb-4 uppercase">Browse the Pool</h2>
-                        <p className="text-neutral-dark/60 font-medium max-w-md">
-                            Filtered by vibe, look, and performance ratings. No negotiation needed - fixed pricing for results.
-                        </p>
-                    </div>
-                    <div className="flex overflow-x-auto pb-2 gap-2 scrollbar-hide">
-                        {vibes.map(v => (
-                            <button
-                                key={v}
-                                onClick={() => setFilter(v)}
-                                className={`whitespace-nowrap px-6 py-2 rounded-full text-sm font-bold transition-all ${filter === v
-                                    ? 'bg-brand text-white shadow-lg shadow-brand/20'
-                                    : 'bg-neutral-cream text-neutral-dark/50 hover:bg-brand/10'
-                                    }`}
-                            >
-                                {v}
-                            </button>
-                        ))}
-                    </div>
+                {/* Heading */}
+                <div className="mb-20">
+                    <h2 className="text-4xl md:text-6xl font-outfit leading-tight tracking-tight">
+                        <span className="text-neutral-dark">Everything you need </span>
+                        <span className="text-brand">to scale your visual content</span>
+                    </h2>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredTalent.map(talent => (
-                        <div key={talent.id} className="group relative bg-neutral-cream rounded-3xl overflow-hidden border border-brand/5 hover:border-brand/20 transition-all duration-500">
-                            <div className="aspect-[4/5] overflow-hidden relative">
-                                <img
-                                    src={talent.image}
-                                    alt={talent.name}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                />
-                                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
-                                    <Star className="fill-brand stroke-brand" size={12} />
-                                    <span className="text-xs font-extrabold text-neutral-dark">{talent.rating}</span>
-                                </div>
-                                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-neutral-dark/80 via-neutral-dark/40 to-transparent">
-                                    <div className="flex flex-wrap gap-2">
-                                        {talent.specialties.map(s => (
-                                            <span key={s} className="text-[10px] font-bold uppercase tracking-widest text-white/80 bg-white/10 px-2 py-1 rounded">
-                                                {s}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
+                {/* Services Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 border-t border-brand/10 pt-16">
+                    {services.map((service, idx) => (
+                        <div key={idx} className="flex flex-col">
+                            <div className="mb-8 h-24 flex items-end">
+                                {service.icon}
                             </div>
-                            <div className="p-6">
-                                <div className="flex items-center justify-between mb-2">
-                                    <h3 className="text-xl font-bold text-neutral-dark">{talent.name}</h3>
-                                    <span className="text-brand font-black">{talent.priceRange}</span>
-                                </div>
-                                <div className="flex items-center gap-2 text-sm text-neutral-dark/50 font-semibold uppercase tracking-wider">
-                                    <span>{talent.vibe}</span>
-                                    <span className="w-1 h-1 bg-brand/30 rounded-full"></span>
-                                    <span>{talent.experience}</span>
-                                </div>
-                                <button className="w-full mt-6 py-3 border-2 border-brand/10 rounded-xl text-sm font-bold text-brand hover:bg-brand hover:text-white hover:border-brand transition-all">
-                                    Book Session
-                                </button>
-                            </div>
+                            <h3 className="text-xl font-bold text-neutral-dark mb-3">
+                                {service.title}
+                            </h3>
+                            <p className="text-neutral-dark/60 font-medium leading-relaxed">
+                                {service.description}
+                            </p>
                         </div>
                     ))}
                 </div>
@@ -376,7 +351,7 @@ const App: React.FC = () => {
             />
             <Hero />
             <QuickStats />
-            <Marketplace />
+            <Services />
             <Features />
             <CTA />
             <Footer />
