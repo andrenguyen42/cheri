@@ -350,7 +350,7 @@ const CTA: React.FC = () => {
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-neutral-dark text-white pt-32 pb-12 px-6">
+        <footer className="bg-gradient-to-br from-neutral-dark via-[#cf2e2e]/20 to-[#ff6b6b]/30 text-white pt-32 pb-12 px-6">
             <div className="max-w-7xl mx-auto">
                 {/* Top Section */}
                 <div className="mb-32">
@@ -403,14 +403,11 @@ const Footer: React.FC = () => {
                     <div className="lg:col-span-6 lg:text-right flex flex-col lg:items-end justify-between h-full">
                         <div className="mb-8 lg:mb-0">
                             <div className="flex items-center gap-2 lg:justify-end mb-4">
-                                <div className="w-8 h-8 bg-brand rounded-full flex items-center justify-center">
-                                    <span className="text-white font-bold text-lg">C</span>
-                                </div>
-                                <span className="text-2xl font-black tracking-tighter text-white uppercase">cheri</span>
+                                <img src={cheriFullBlack} alt="Cheri" className="h-10 invert brightness-0 opacity-100" />
                             </div>
                         </div>
 
-                        <div className="text-white/40 font-medium text-sm leading-relaxed">
+                        <div className="text-white/60 font-medium text-sm leading-relaxed">
                             <p>1234 Sunset Blvd, Los Angeles CA 90026</p>
                             <p className="hover:text-white transition-colors"><a href="mailto:hello@cheri.com">hello@cheri.com</a></p>
                             <p>+1 (555) 012-3456</p>
