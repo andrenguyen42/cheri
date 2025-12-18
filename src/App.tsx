@@ -350,7 +350,7 @@ const CTA: React.FC = () => {
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-gradient-to-br from-neutral-dark via-neutral-dark to-[#ee9ca7]/10 text-white pt-32 pb-12 px-6">
+        <footer className="bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#ee9ca7]/20 via-neutral-dark via-60% to-neutral-dark text-white pt-32 pb-12 px-6">
             <div className="max-w-7xl mx-auto">
                 {/* Top Section */}
                 <div className="mb-32">
