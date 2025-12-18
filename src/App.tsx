@@ -79,20 +79,20 @@ const QuickStats: React.FC = () => {
 const Services: React.FC = () => {
     const services = [
         {
-            title: "Branding",
-            description: "Clarify your story and stand out in the market with advanced strategic precision."
+            title: "Presence",
+            description: "Faces built for modern digital storytelling."
         },
         {
-            title: "Websites",
-            description: "Design frictionless digital journeys that consistently convert higher-quality buyers."
+            title: "Access",
+            description: "Talent on demand, ready for production."
         },
         {
-            title: "Search Marketing",
-            description: "Build fast, scalable search systems that reliably power sustainable long-term growth."
+            title: "Performance",
+            description: "Selection driven by performance, not popularity."
         },
         {
-            title: "Paid Ads",
-            description: "Increase qualified demand through highly targeted, high-intent acquisition campaigns."
+            title: "Ample",
+            description: "A steady supply of on-screen talent as you scale."
         }
     ];
 
