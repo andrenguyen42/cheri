@@ -78,49 +78,62 @@ const QuickStats: React.FC = () => {
 const Services: React.FC = () => {
     const services = [
         {
-            icon: <Camera className="text-brand" size={48} />,
-            title: "Talent Sourcing",
-            description: "Access our curated pool of vetted on-screen talent, filtered by look, vibe, and performance metrics."
+            title: "Branding",
+            description: "Clarify your story and stand out in the market with advanced strategic precision."
         },
         {
-            icon: <Search className="text-brand" size={48} />,
-            title: "Vibe Matching",
-            description: "Our algorithm matches talent to your brand's aesthetic, ensuring authentic visual representation."
+            title: "Websites",
+            description: "Design frictionless digital journeys that consistently convert higher-quality buyers."
         },
         {
-            icon: <MessageSquare className="text-brand" size={48} />,
-            title: "Brief Management",
-            description: "Submit your creative briefs and let us handle talent coordination, scheduling, and delivery."
+            title: "Search Marketing",
+            description: "Build fast, scalable search systems that reliably power sustainable long-term growth."
         },
         {
-            icon: <CheckCircle className="text-brand" size={48} />,
-            title: "Quality Assurance",
-            description: "Every piece of content goes through our review process to ensure brand alignment and quality."
+            title: "Paid Ads",
+            description: "Increase qualified demand through highly targeted, high-intent acquisition campaigns."
         }
     ];
 
     return (
         <section id="services" className="py-24 bg-white px-6">
             <div className="max-w-7xl mx-auto">
-                {/* Heading */}
-                <div className="mb-20">
-                    <h2 className="text-4xl md:text-6xl font-outfit leading-tight tracking-tight">
-                        <span className="text-neutral-dark">Everything you need </span>
-                        <span className="text-brand">to scale your visual content</span>
+                <div className="mb-24">
+                    <div className="flex items-center gap-3 mb-8">
+                        <div className="flex gap-1">
+                            <span className="w-0.5 h-3 bg-neutral-dark/20 -skew-x-12"></span>
+                            <span className="w-0.5 h-3 bg-neutral-dark/20 -skew-x-12"></span>
+                            <span className="w-0.5 h-3 bg-neutral-dark/20 -skew-x-12"></span>
+                        </div>
+                        <span className="text-xs font-bold tracking-[0.2em] text-neutral-dark/40 uppercase font-sans">Solutions</span>
+                    </div>
+
+                    <h2 className="text-5xl md:text-7xl font-outfit leading-[1.1] tracking-tight max-w-4xl">
+                        <span className="text-neutral-dark font-medium">All things considered </span>
+                        <span className="text-brand font-medium">to drive exponential growth</span>
                     </h2>
                 </div>
 
-                {/* Services Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 border-t border-brand/10 pt-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-brand/10">
                     {services.map((service, idx) => (
-                        <div key={idx} className="flex flex-col">
-                            <div className="mb-8 h-24 flex items-end">
-                                {service.icon}
+                        <div
+                            key={idx}
+                            className={`flex flex-col pt-12 pb-12 px-4 md:px-8 border-brand/10 ${idx < services.length - 1 ? 'lg:border-r' : ''
+                                } ${idx % 2 === 0 ? 'md:border-r lg:border-r-0' : ''} ${idx < 2 ? 'md:border-b lg:border-b-0' : ''
+                                } ${idx < services.length - 1 ? 'border-b md:border-b-0' : ''}`}
+                        >
+                            <div className="aspect-[4/3] mb-10 bg-neutral-cream rounded-sm overflow-hidden relative group w-full grayscale hover:grayscale-0 transition-all duration-500">
+                                {/* Placeholder for user to replace */}
+                                <div className="absolute inset-0 bg-neutral-100 flex items-center justify-center">
+                                    <div className="text-neutral-dark/10 font-outfit font-bold text-sm uppercase tracking-widest border-2 border-dashed border-neutral-dark/10 px-4 py-2 rounded">
+                                        Image Placeholder
+                                    </div>
+                                </div>
                             </div>
-                            <h3 className="text-xl font-bold text-neutral-dark mb-3">
+                            <h3 className="text-2xl font-outfit font-semibold text-neutral-dark mb-4">
                                 {service.title}
                             </h3>
-                            <p className="text-neutral-dark/60 font-medium leading-relaxed">
+                            <p className="text-neutral-dark/60 font-medium leading-relaxed text-sm">
                                 {service.description}
                             </p>
                         </div>
