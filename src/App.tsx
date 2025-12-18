@@ -9,6 +9,8 @@ import {
 } from 'lucide-react';
 import { TALENT_DATA } from './constants';
 import cheriLogo from './assets/cheri.png';
+import cheriFullBlack from './assets/cheri-full-black.png';
+import cheriFullRed from './assets/cheri-full-red.png';
 import CardNav from './CardNav';
 
 // --- TOP VIEWPORT: Minimalist / Jellypepper Style ---
@@ -258,10 +260,7 @@ const Footer: React.FC = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 mb-20">
                     <div className="col-span-2">
                         <div className="flex items-center gap-2 mb-6">
-                            <div className="w-8 h-8 bg-brand rounded-full flex items-center justify-center">
-                                <span className="text-white font-bold text-lg">C</span>
-                            </div>
-                            <span className="text-2xl font-black tracking-tighter text-brand uppercase">cheri</span>
+                            <img src={cheriFullRed} alt="Cheri" className="h-8" />
                         </div>
                         <p className="text-neutral-dark/40 font-medium mb-8 leading-relaxed">
                             Redefining visual presence as a measurable marketing input rather than a vanity asset.
@@ -353,6 +352,11 @@ const App: React.FC = () => {
 
     return (
         <div className="min-h-screen selection:bg-brand/20 selection:text-brand bg-white font-sans text-neutral-dark">
+            {/* Top Left Logo */}
+            <div className="fixed left-4 md:left-6 top-4 md:top-6 z-[99]">
+                <img src={cheriFullBlack} alt="Cheri" className="h-6 md:h-8" />
+            </div>
+
             <CardNav
                 logo={cheriLogo}
                 logoAlt="Cheri Logo"
