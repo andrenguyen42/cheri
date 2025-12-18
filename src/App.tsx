@@ -80,19 +80,19 @@ const Services: React.FC = () => {
     const services = [
         {
             title: "Presence",
-            description: "Faces built for modern digital storytelling."
+            description: "Faces built for modern digital storytelling, designed to capture attention and communicate brand value on screen."
         },
         {
             title: "Access",
-            description: "Talent on demand, ready for production."
+            description: "Talent on demand, ready for production, without the delays, negotiations, or overhead of traditional casting."
         },
         {
             title: "Performance",
-            description: "Selection driven by performance, not popularity."
+            description: "Selection driven by proven on-camera performance and professionalism, not follower counts or vanity metrics."
         },
         {
             title: "Ample",
-            description: "A steady supply of on-screen talent as you scale."
+            description: "A steady, scalable supply of on-screen talent to support consistent content creation as your company grows."
         }
     ];
 
