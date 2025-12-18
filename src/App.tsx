@@ -353,7 +353,7 @@ const App: React.FC = () => {
     return (
         <div className="min-h-screen selection:bg-brand/20 selection:text-brand bg-white font-sans text-neutral-dark">
             {/* Top Left Logo */}
-            <div className="fixed left-4 md:left-6 top-4 md:top-6 z-[99]">
+            <div className="absolute left-4 md:left-6 top-4 md:top-6 z-[99]">
                 <img src={cheriFullBlack} alt="Cheri" className="h-6 md:h-8" />
             </div>
 
