@@ -350,8 +350,11 @@ const CTA: React.FC = () => {
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#ee9ca7]/20 via-neutral-dark via-60% to-neutral-dark text-white pt-32 pb-12 px-6">
-            <div className="max-w-7xl mx-auto">
+        <footer className="relative bg-neutral-dark text-white pt-32 pb-12 px-6 overflow-hidden">
+            {/* Subtle Gradient Glow */}
+            <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#ee9ca7] rounded-full blur-[120px] opacity-10 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+
+            <div className="relative z-10 max-w-7xl mx-auto">
                 {/* Top Section */}
                 <div className="mb-32">
                     <div className="flex items-center gap-3 mb-12">
