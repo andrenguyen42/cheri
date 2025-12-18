@@ -310,6 +310,7 @@ class Media {
             textColor: this.textColor,
             font: this.font
         });
+        this.title.mesh.visible = false;
     }
 
     update(scroll: { current: number; last: number }, direction: 'right' | 'left') {

@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useRef, useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { GoArrowUpRight } from 'react-icons/go';
+import { Link } from 'react-router-dom';
 
 type CardNavLink = {
     label: string;
@@ -236,15 +237,16 @@ const CardNav: React.FC<CardNavProps> = ({
                                 </div>
                                 <div className="nav-card-links flex flex-col gap-1">
                                     {item.links?.map((lnk, i) => (
-                                        <a
+                                        <Link
                                             key={`${lnk.label}-${i}`}
                                             className="nav-card-link inline-flex items-center gap-2 no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-sm"
-                                            href={lnk.href}
+                                            to={lnk.href}
                                             aria-label={lnk.ariaLabel}
+                                            onClick={closeMenu}
                                         >
                                             <GoArrowUpRight className="nav-card-link-icon shrink-0" aria-hidden="true" />
                                             {lnk.label}
-                                        </a>
+                                        </Link>
                                     ))}
                                 </div>
                             </div>
@@ -258,7 +260,8 @@ const CardNav: React.FC<CardNavProps> = ({
     // Render Desktop Nav
     return (
         <div
-            className={`card-nav-container fixed right-6 top-6 z-[99] flex justify-end ${className}`}
+            className={`card-nav-container fixed right-6 top-6 z-[99] flex justify-end ${className} transform-gpu`}
+            style={{ backfaceVisibility: 'hidden' }}
         >
             <nav
                 ref={navRef}
@@ -306,15 +309,16 @@ const CardNav: React.FC<CardNavProps> = ({
                             </div>
                             <div className="nav-card-links mt-auto flex flex-col gap-[2px]">
                                 {item.links?.map((lnk, i) => (
-                                    <a
+                                    <Link
                                         key={`${lnk.label}-${i}`}
                                         className="nav-card-link inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-[15px] md:text-[16px]"
-                                        href={lnk.href}
+                                        to={lnk.href}
                                         aria-label={lnk.ariaLabel}
+                                        onClick={closeMenu}
                                     >
                                         <GoArrowUpRight className="nav-card-link-icon shrink-0" aria-hidden="true" />
                                         {lnk.label}
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         </div>

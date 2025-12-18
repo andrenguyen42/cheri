@@ -25,6 +25,22 @@
       transform: translateY(-10px);
     }
   }
+
+  --animate-shimmer: shimmer 8s linear infinite;
+
+  @keyframes shimmer {
+    0% {
+      background-position: 0% 50%
+    }
+
+    50% {
+      background-position: 100% 50%
+    }
+
+    100% {
+      background-position: 0% 50%
+    }
+  }
 }
 
 @layer base {
