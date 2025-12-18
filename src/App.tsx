@@ -18,10 +18,16 @@ import { FaXTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa6';
 // Navbar removed in favor of CardNav
 
 
+import CircularGallery from './CircularGallery';
+import heroBg from './assets/hero-bg.png';
+
 const Hero: React.FC = () => {
     return (
-        <section className="min-h-screen flex flex-col items-center justify-center pt-32 pb-40 px-6 bg-neutral-cream">
-            <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
+        <section
+            className="min-h-screen flex flex-col items-center justify-center pt-32 pb-40 px-6 bg-cover bg-center bg-no-repeat relative overflow-hidden"
+            style={{ backgroundImage: `url(${heroBg})` }}
+        >
+            <div className="max-w-3xl mx-auto text-center flex flex-col items-center z-10 relative">
                 <div className="mb-16 animate-float">
                     <img
                         src={cheriLogo}
@@ -38,12 +44,18 @@ const Hero: React.FC = () => {
                     We source and vet beautiful female presence for startups looking to build high-performance marketing content.
                 </p>
 
-                <button className="group flex items-center gap-3 text-sm font-bold text-neutral-dark hover:text-brand transition-all duration-300">
-                    <div className="w-10 h-10 bg-neutral-dark rounded-full flex items-center justify-center text-white group-hover:bg-brand transition-colors duration-300">
-                        <ArrowRight size={16} />
-                    </div>
-                    <span>Get started with us</span>
-                </button>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-24">
+                    <button className="group flex items-center gap-3 text-sm font-bold text-neutral-dark hover:text-brand transition-all duration-300 bg-white/80 backdrop-blur-sm py-4 px-8 rounded-full shadow-lg hover:shadow-xl">
+                        <div className="w-10 h-10 bg-neutral-dark rounded-full flex items-center justify-center text-white group-hover:bg-brand transition-colors duration-300">
+                            <ArrowRight size={16} />
+                        </div>
+                        <span>Get started with us</span>
+                    </button>
+                </div>
+
+                <div style={{ height: '600px', position: 'relative', width: '100%', maxWidth: '1000px' }}>
+                    <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02} />
+                </div>
             </div>
         </section>
     );
