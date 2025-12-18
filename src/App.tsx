@@ -150,17 +150,32 @@ const Approach: React.FC = () => {
 
     const tabs = [
         {
+            id: 'curated',
+            label: 'Curated',
+            icon: <Fingerprint size={24} />,
+            content: {
+                title: 'Curated',
+                description: 'Every talent on Cheri is intentionally selected. We focus on on-camera presence, professionalism, and brand adaptability to ensure startups are choosing from a pool that meets a clear standard.',
+                deliverables: [
+                    'Vetted talent onboarding',
+                    'On-camera presence evaluation',
+                    'Brand and tone alignment review',
+                    'Ongoing talent quality checks'
+                ]
+            }
+        },
+        {
             id: 'accessible',
             label: 'Accessible',
             icon: <Accessibility size={24} />,
             content: {
                 title: 'Accessible',
-                description: 'We build with inclusivity in mind, ensuring your site is usable by everyone, regardless of ability or device.',
+                description: 'Cheri lowers the barrier to sourcing on-screen talent. Startups gain immediate access to capable female talent without influencer contracts, long casting cycles, or unnecessary gatekeeping.',
                 deliverables: [
-                    'WCAG 2.1 AA Compliance',
-                    'Screen reader optimization',
-                    'Keyboard navigation support',
-                    'Semantic HTML structure'
+                    'No follower minimums',
+                    'Simple booking workflow',
+                    'Transparent pricing structure',
+                    'Clear usage rights'
                 ]
             }
         },
@@ -170,12 +185,27 @@ const Approach: React.FC = () => {
             icon: <Activity size={24} />,
             content: {
                 title: 'Performant',
-                description: 'A high-performance website loads instantly, responds smoothly, and never gets in the way of the user. By optimizing code, images, and infrastructure from the ground up, we [placeholder text matching image context].',
+                description: 'Talent selection is driven by real outcomes. Cheri prioritizes performance indicators over popularity, helping startups choose talent that delivers clarity, engagement, and consistency on screen.',
                 deliverables: [
-                    '90+ Google PageSpeed Score',
-                    'Optimized asset delivery',
-                    'Efficient caching strategies',
-                    'Minimal main-thread work'
+                    'Performance-based ratings',
+                    'Client feedback loops',
+                    'Talent tiering by effectiveness',
+                    'Repeatability tracking'
+                ]
+            }
+        },
+        {
+            id: 'scalable',
+            label: 'Scalable',
+            icon: <PieChart size={24} />, // PieChart works for scalable/growth
+            content: {
+                title: 'Scalable',
+                description: 'As startups grow, content demands increase. Cheri is built to support volume—ensuring brands always have access to a steady supply of on-screen talent.',
+                deliverables: [
+                    'Expanding talent pool',
+                    'Support for recurring campaigns',
+                    'Multi-talent sourcing for growth teams',
+                    'Ongoing availability management'
                 ]
             }
         },
@@ -185,59 +215,27 @@ const Approach: React.FC = () => {
             icon: <HeartHandshake size={24} />,
             content: {
                 title: 'Supported',
-                description: 'We remain an active partner long after launch. Our team provides guidance, updates, documentation, and ongoing improvements so your website continues to operate reliably and evolve with your business needs—without creating extra work for your internal team.',
+                description: 'Cheri stays involved throughout the process, ensuring talent delivery remains smooth and expectations are met on both sides.',
                 deliverables: [
-                    'Dedicated project support channel',
-                    'Monthly check-ins and priority updates',
-                    'Issue monitoring and quick resolution',
-                    'Documentation for workflows and components',
-                    'Analytics and performance review',
-                    'Roadmap planning for future improvements'
+                    'Talent coordination and matching',
+                    'Delivery oversight',
+                    'Issue resolution and support',
+                    'Clear communication between parties'
                 ]
             }
         },
         {
-            id: 'secure',
-            label: 'Secure',
-            icon: <Fingerprint size={24} />,
-            content: {
-                title: 'Secure',
-                description: 'Security is not an afterthought. We implement industry-standard practices to protect your data and your users.',
-                deliverables: [
-                    'Regular security audits',
-                    'Data encryption at rest and transit',
-                    'Secure authentication flows',
-                    'GDPR & CCPA compliance'
-                ]
-            }
-        },
-        {
-            id: 'optimized',
-            label: 'Optimized',
+            id: 'aligned',
+            label: 'Aligned',
             icon: <Settings size={24} />,
             content: {
-                title: 'Optimized',
-                description: 'We fine-tune every aspect of your digital presence for maximum efficiency and conversion.',
+                title: 'Aligned',
+                description: 'We prioritize alignment between brand intent and on-screen execution. Talent is matched not just on appearance, but on tone, comfort, and communication style.',
                 deliverables: [
-                    'SEO best practices',
-                    'Conversion rate optimization',
-                    'Clean code architecture',
-                    'Scalable infrastructure'
-                ]
-            }
-        },
-        {
-            id: 'insightful',
-            label: 'Insightful',
-            icon: <PieChart size={24} />,
-            content: {
-                title: 'Insightful',
-                description: 'Data-driven decisions lead to better results. We provide deep insights into user behavior and site performance.',
-                deliverables: [
-                    'Custom analytics dashboards',
-                    'User behavior tracking',
-                    'Performance reporting',
-                    'A/B testing capabilities'
+                    'Brand brief review',
+                    'Talent-to-brand fit guidance',
+                    'Role-specific recommendations',
+                    'Consistency across deliverables'
                 ]
             }
         }
@@ -257,12 +255,12 @@ const Approach: React.FC = () => {
                     </div>
 
                     <h2 className="text-5xl md:text-7xl font-outfit leading-[1.1] tracking-tight max-w-5xl mb-8">
-                        <span className="text-neutral-dark font-medium">All things considered </span>
-                        <span className="text-brand font-medium">for your peace of mind</span>
+                        <span className="text-neutral-dark font-medium">Designed for growth. </span>
+                        <span className="text-brand font-medium">Built around presence.</span>
                     </h2>
 
-                    <p className="max-w-2xl text-lg text-neutral-dark/70 leading-relaxed font-medium">
-                        We are your full-service digital marketing partner, committed to getting it right, in every detail, every time. To do this, we embrace a <span className="underline decoration-brand decoration-2 underline-offset-4">holistic approach</span>, rooted in purposeful strategy and advanced through expert website design, meticulous engineering and strategic marketing.
+                    <p className="max-w-3xl text-lg text-neutral-dark/70 leading-relaxed font-medium">
+                        Cheri exists to make sourcing on-screen female talent simple, reliable, and effective for modern startups. Our approach prioritizes speed, quality, and performance—connecting brands with talent that is ready to show up on camera and deliver results. Every part of our process is designed to reduce friction, maintain consistency, and support scalable content production.
                     </p>
                 </div>
 
