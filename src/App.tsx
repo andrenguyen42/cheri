@@ -15,12 +15,13 @@ import CardNav from './CardNav';
 import { FaXTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa6';
 import { motion } from 'framer-motion';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
     const { pathname } = useLocation();
     React.useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: 'instant' });
     }, [pathname]);
     return null;
 };
@@ -391,9 +392,11 @@ const Approach: React.FC = () => {
 const CTA: React.FC = () => {
     return (
         <section className="px-6 pt-16 pb-0 bg-white flex flex-col items-center justify-center min-h-[40vh] relative overflow-visible isolate -mb-1 z-30">
-            {/* Background Gradients - Subtle for white theme */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand/5 rounded-full blur-[120px] -mr-40 -mt-40 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-light/10 rounded-full blur-[120px] -ml-40 -mb-40 pointer-events-none"></div>
+            {/* Background Gradients - Wrapped to prevent overflow while keeping Cat visible */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand/5 rounded-full blur-[120px] -mr-40 -mt-40 pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-light/10 rounded-full blur-[120px] -ml-40 -mb-40 pointer-events-none"></div>
+            </div>
 
             <div className="max-w-5xl mx-auto w-full text-center relative z-10 flex flex-col items-center justify-center h-full pb-0 mb-32">
                 {/* Heading with Inline Logo */}
@@ -519,7 +522,10 @@ const Home: React.FC = () => {
     );
 };
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
+    const location = useLocation();
+    const isDarkPage = location.pathname === '/process/pricing';
+
     const navItems = [
         {
             label: "Talent",
@@ -551,38 +557,61 @@ const App: React.FC = () => {
     ];
 
     return (
-        <BrowserRouter>
+        <div className={`min-h-screen overflow-x-hidden selection:bg-brand/20 selection:text-brand font-sans text-neutral-dark ${isDarkPage ? 'bg-[#120b0d]' : 'bg-white'}`}>
             <ScrollToTop />
-            <div className="min-h-screen selection:bg-brand/20 selection:text-brand bg-white font-sans text-neutral-dark">
-                {/* Top Left Logo - Link to Home */}
-                <div className="absolute left-4 md:left-6 top-4 md:top-6 z-[99]">
-                    <Link to="/">
-                        <img src={cheriFullBlack} alt="Cheri" className="h-6 md:h-8" />
-                    </Link>
-                </div>
-
-                <CardNav
-                    logo={cheriLogo}
-                    logoAlt="Cheri Logo"
-                    items={navItems}
-                    baseColor="#ffffff"
-                    menuColor="#2d1b1e"
-                    buttonBgColor="#2d1b1e"
-                    buttonTextColor="#ffffff"
-                />
-
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/talent/browse" element={<Browse />} />
-                    <Route path="/talent/criteria" element={<Criteria />} />
-                    <Route path="/process/how-it-works" element={<HowItWorks />} />
-                    <Route path="/process/pricing" element={<Pricing />} />
-                    <Route path="/contact/about" element={<About />} />
-                    <Route path="/contact/get-in-touch" element={<GetInTouch />} />
-                </Routes>
-
-                <Footer />
+            {/* Top Left Logo - Link to Home */}
+            <div className="absolute left-4 md:left-6 top-4 md:top-6 z-[99]">
+                <Link to="/">
+                    <img
+                        src={cheriFullBlack}
+                        alt="Cheri"
+                        className={`h-6 md:h-8 transition-all duration-500 ${isDarkPage ? 'invert brightness-0 opacity-100' : ''}`}
+                    />
+                </Link>
             </div>
+
+            <CardNav
+                logo={cheriLogo}
+                logoAlt="Cheri Logo"
+                items={navItems}
+                baseColor="#ffffff"
+                menuColor="#2d1b1e"
+                buttonBgColor="#2d1b1e"
+                buttonTextColor="#ffffff"
+            />
+
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={location.pathname}
+                    initial={{ y: "20px", opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: "-20px", opacity: 0 }}
+                    transition={{
+                        duration: 0.5,
+                        ease: [0.22, 1, 0.36, 1]
+                    }}
+                >
+                    <Routes location={location} key={location.pathname}>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/talent/browse" element={<Browse />} />
+                        <Route path="/talent/criteria" element={<Criteria />} />
+                        <Route path="/process/how-it-works" element={<HowItWorks />} />
+                        <Route path="/process/pricing" element={<Pricing />} />
+                        <Route path="/contact/about" element={<About />} />
+                        <Route path="/contact/get-in-touch" element={<GetInTouch />} />
+                    </Routes>
+                </motion.div>
+            </AnimatePresence>
+
+            <Footer />
+        </div>
+    );
+};
+
+const App: React.FC = () => {
+    return (
+        <BrowserRouter>
+            <AppContent />
         </BrowserRouter>
     );
 };
