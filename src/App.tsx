@@ -12,6 +12,7 @@ import cheriLogo from './assets/cheri.png';
 import cheriFullBlack from './assets/cheri-full-black.png';
 import cheriFullRed from './assets/cheri-full-red.png';
 import CardNav from './CardNav';
+import { FaXTwitter, FaInstagram, FaLinkedinIn, FaFacebookF } from 'react-icons/fa6';
 
 // --- TOP VIEWPORT: Minimalist / Jellypepper Style ---
 
@@ -266,11 +267,18 @@ const Footer: React.FC = () => {
                             Redefining visual presence as a measurable marketing input rather than a vanity asset.
                         </p>
                         <div className="flex gap-4">
-                            {['TW', 'IG', 'LI', 'FB'].map(social => (
-                                <a key={social} href="#" className="w-10 h-10 rounded-full bg-neutral-cream flex items-center justify-center text-xs font-black text-brand hover:bg-brand hover:text-white transition-all">
-                                    {social}
-                                </a>
-                            ))}
+                            <a href="#" className="w-10 h-10 rounded-full bg-neutral-cream flex items-center justify-center text-brand hover:bg-brand hover:text-white transition-all">
+                                <FaXTwitter size={16} />
+                            </a>
+                            <a href="#" className="w-10 h-10 rounded-full bg-neutral-cream flex items-center justify-center text-brand hover:bg-brand hover:text-white transition-all">
+                                <FaInstagram size={16} />
+                            </a>
+                            <a href="#" className="w-10 h-10 rounded-full bg-neutral-cream flex items-center justify-center text-brand hover:bg-brand hover:text-white transition-all">
+                                <FaLinkedinIn size={16} />
+                            </a>
+                            <a href="#" className="w-10 h-10 rounded-full bg-neutral-cream flex items-center justify-center text-brand hover:bg-brand hover:text-white transition-all">
+                                <FaFacebookF size={16} />
+                            </a>
                         </div>
                     </div>
 
@@ -308,7 +316,7 @@ const Footer: React.FC = () => {
                 </div>
 
                 <div className="pt-12 border-t border-brand/5 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <p className="text-xs font-bold text-neutral-dark/30">© 2024 CHERI MARKETPLACE. ALL RIGHTS RESERVED.</p>
+                    <p className="text-xs font-bold text-neutral-dark/30">© 2026 CHERI. ALL RIGHTS RESERVED.</p>
                     <div className="flex gap-8">
                         <a href="#" className="text-xs font-bold text-neutral-dark/30 hover:text-brand">PRIVACY POLICY</a>
                         <a href="#" className="text-xs font-bold text-neutral-dark/30 hover:text-brand">COOKIE POLICY</a>
