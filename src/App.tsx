@@ -10,9 +10,8 @@ import {
 } from 'lucide-react';
 import cheriLogo from './assets/cheri.png';
 import cheriFullBlack from './assets/cheri-full-black.png';
-import cheriFullRed from './assets/cheri-full-red.png';
 import CardNav from './CardNav';
-import { FaXTwitter, FaInstagram, FaLinkedinIn, FaFacebookF } from 'react-icons/fa6';
+import { FaXTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa6';
 
 // --- TOP VIEWPORT: Minimalist / Jellypepper Style ---
 
@@ -351,70 +350,80 @@ const CTA: React.FC = () => {
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-white pt-24 pb-12 px-6 border-t border-brand/5">
+        <footer className="bg-neutral-dark text-white pt-32 pb-12 px-6">
             <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 mb-20">
-                    <div className="col-span-2">
-                        <div className="flex items-center gap-2 mb-6">
-                            <img src={cheriFullRed} alt="Cheri" className="h-8" />
+                {/* Top Section */}
+                <div className="mb-32">
+                    <div className="flex items-center gap-3 mb-12">
+                        <div className="flex gap-1">
+                            <span className="w-0.5 h-3 bg-white/20 -skew-x-12"></span>
+                            <span className="w-0.5 h-3 bg-white/20 -skew-x-12"></span>
+                            <span className="w-0.5 h-3 bg-white/20 -skew-x-12"></span>
                         </div>
-                        <p className="text-neutral-dark/40 font-medium mb-8 leading-relaxed">
-                            Redefining visual presence as a measurable marketing input rather than a vanity asset.
-                        </p>
-                        <div className="flex gap-4">
-                            <a href="#" className="w-10 h-10 rounded-full bg-neutral-cream flex items-center justify-center text-brand hover:bg-brand hover:text-white transition-all">
-                                <FaXTwitter size={16} />
-                            </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-neutral-cream flex items-center justify-center text-brand hover:bg-brand hover:text-white transition-all">
-                                <FaInstagram size={16} />
-                            </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-neutral-cream flex items-center justify-center text-brand hover:bg-brand hover:text-white transition-all">
-                                <FaLinkedinIn size={16} />
-                            </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-neutral-cream flex items-center justify-center text-brand hover:bg-brand hover:text-white transition-all">
-                                <FaFacebookF size={16} />
-                            </a>
-                        </div>
+                        <span className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase font-sans">Start the conversation</span>
                     </div>
 
-                    <div>
-                        <h4 className="font-black text-xs uppercase tracking-widest text-brand mb-6">Platform</h4>
-                        <ul className="space-y-4 text-sm font-bold text-neutral-dark/60">
-                            <li><a href="#" className="hover:text-brand">Talent Pool</a></li>
-                            <li><a href="#" className="hover:text-brand">Pricing</a></li>
-                            <li><a href="#" className="hover:text-brand">Submit Brief</a></li>
+                    <a href="mailto:hello@cheri.com" className="text-[8vw] md:text-[9vw] font-outfit font-medium tracking-tight hover:text-brand transition-colors duration-300 leading-none block -ml-[0.5vw]">
+                        hello@cheri.com
+                    </a>
+                </div>
+
+                {/* Bottom Section */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 items-end border-t border-white/10 pt-12">
+                    {/* Links Columns */}
+                    <div className="lg:col-span-3">
+                        <h4 className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase font-sans mb-6">Agency</h4>
+                        <ul className="space-y-3">
+                            {['Case Studies', 'Methodology', 'About Us', 'Contact'].map(item => (
+                                <li key={item}>
+                                    <a href="#" className="text-lg font-medium hover:text-brand transition-colors">{item}</a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    <div>
-                        <h4 className="font-black text-xs uppercase tracking-widest text-brand mb-6">Company</h4>
-                        <ul className="space-y-4 text-sm font-bold text-neutral-dark/60">
-                            <li><a href="#" className="hover:text-brand">About Us</a></li>
-                            <li><a href="#" className="hover:text-brand">Contact</a></li>
-                            <li><a href="#" className="hover:text-brand">Terms</a></li>
+                    <div className="lg:col-span-3">
+                        <h4 className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase font-sans mb-6">Socials</h4>
+                        <ul className="space-y-3">
+                            {[
+                                { name: 'Twitter / X', icon: <FaXTwitter /> },
+                                { name: 'Instagram', icon: <FaInstagram /> },
+                                { name: 'LinkedIn', icon: <FaLinkedinIn /> }
+                            ].map(item => (
+                                <li key={item.name}>
+                                    <a href="#" className="text-lg font-medium hover:text-brand transition-colors flex items-center gap-2">
+                                        {item.name}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    <div className="col-span-2">
-                        <h4 className="font-black text-xs uppercase tracking-widest text-brand mb-6">Updates</h4>
-                        <div className="flex p-1 bg-neutral-cream rounded-2xl border border-brand/10">
-                            <input
-                                type="email"
-                                placeholder="you@startup.com"
-                                className="bg-transparent px-4 py-3 text-sm font-medium w-full focus:outline-none"
-                            />
-                            <button className="bg-brand text-white px-6 py-3 rounded-xl text-sm font-black shadow-lg shadow-brand/20 hover:scale-[1.02] transition-all">
-                                Join
-                            </button>
+                    {/* Logo & Address - Right Aligned */}
+                    <div className="lg:col-span-6 lg:text-right flex flex-col lg:items-end justify-between h-full">
+                        <div className="mb-8 lg:mb-0">
+                            <div className="flex items-center gap-2 lg:justify-end mb-4">
+                                <div className="w-8 h-8 bg-brand rounded-full flex items-center justify-center">
+                                    <span className="text-white font-bold text-lg">C</span>
+                                </div>
+                                <span className="text-2xl font-black tracking-tighter text-white uppercase">cheri</span>
+                            </div>
+                        </div>
+
+                        <div className="text-white/40 font-medium text-sm leading-relaxed">
+                            <p>1234 Sunset Blvd, Los Angeles CA 90026</p>
+                            <p className="hover:text-white transition-colors"><a href="mailto:hello@cheri.com">hello@cheri.com</a></p>
+                            <p>+1 (555) 012-3456</p>
                         </div>
                     </div>
                 </div>
 
-                <div className="pt-12 border-t border-brand/5 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <p className="text-xs font-bold text-neutral-dark/30">© 2026 CHERI. ALL RIGHTS RESERVED.</p>
+                {/* Copyright */}
+                <div className="flex flex-col md:flex-row justify-between items-center gap-6 mt-24 text-xs font-bold tracking-widest text-white/20 uppercase">
+                    <p>© 2026 CHERI. ALL RIGHTS RESERVED.</p>
                     <div className="flex gap-8">
-                        <a href="#" className="text-xs font-bold text-neutral-dark/30 hover:text-brand">PRIVACY POLICY</a>
-                        <a href="#" className="text-xs font-bold text-neutral-dark/30 hover:text-brand">COOKIE POLICY</a>
+                        <a href="#" className="hover:text-brand transition-colors">PRIVACY POLICY</a>
+                        <a href="#" className="hover:text-brand transition-colors">COOKIE POLICY</a>
                     </div>
                 </div>
             </div>
